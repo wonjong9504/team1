@@ -271,7 +271,7 @@ spec:
             matchLabels:
               app: tomcat
       containers:
-      - image: 637423521175.dkr.ecr.ap-northeast-2.amazonaws.com/tomcat-join:v1.0
+      - image: wonjong9504/join:v1.0
         name: tomcat-join-deploy
         ports:
         - containerPort: 8080
