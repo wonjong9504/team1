@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tomcat
+  name: tomcattt
   labels:
-    app: tomcat
+    app: tomcattt
 spec:
   containers:
-  - name: tomcat
+  - name: tomcattt
     image: 533267068090.dkr.ecr.ap-northeast-2.amazonaws.com/maintomcat:v2.0
     ports:
     - containerPort: 8080
@@ -18,7 +18,7 @@ metadata:
 spec:
   clusterIP: 172.20.2.240
   selector:
-    app: tomcat
+    app: tomcattt
   ports:
   - name: http
     port: 8080
