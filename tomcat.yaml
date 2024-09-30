@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tomcat-index
+  name: tomcat
   annotations:
     kubernetes.io/change-cause: first_version
 spec:
@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: tomcat
-      name: index
+      name: main
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,7 +19,7 @@ spec:
     metadata:
       labels:
         app: tomcat
-        name: index
+        name: main
     spec:
       affinity:
         podAntiAffinity:
@@ -31,7 +31,7 @@ spec:
                 - key: name
                   operator: In
                   values:
-                  - index
+                  - main
                 - key: app
                   operator: In
                   values:
