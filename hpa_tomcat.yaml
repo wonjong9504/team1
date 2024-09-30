@@ -4,7 +4,7 @@ metadata:
   name: hpa-index-tomcat
 spec:
   maxReplicas: 10
-  minReplicas: 2
+  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
@@ -18,7 +18,7 @@ metadata:
   name: hpa-login-tomcat
 spec:
   maxReplicas: 5
-  minReplicas: 2
+  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
@@ -32,7 +32,7 @@ metadata:
   name: hpa-join-tomcat
 spec:
   maxReplicas: 5
-  minReplicas: 2
+  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
@@ -46,7 +46,7 @@ metadata:
   name: hpa-mypage-tomcat
 spec:
   maxReplicas: 5
-  minReplicas: 2
+  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
@@ -60,7 +60,7 @@ metadata:
   name: hpa-menu-tomcat
 spec:
   maxReplicas: 10
-  minReplicas: 2
+  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
