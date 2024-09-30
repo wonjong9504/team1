@@ -22,7 +22,7 @@ spec:
         name: main
       containers:
       - image: 533267068090.dkr.ecr.ap-northeast-2.amazonaws.com/maintomcat:v1.0
-        name: tomcat
+        name: tomcatt
         ports:
         - containerPort: 8080
         resources:
