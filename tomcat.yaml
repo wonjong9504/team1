@@ -1,43 +1,15 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: tomcatt
-  annotations:
-    kubernetes.io/change-cause: first_version
+  name: tomcat
+  labels:
+    app: tomcat
 spec:
-  replicas: 1
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 50%
-      maxUnavailable: 50%
-  template:
-    metadata:
-      labels:
-        app: tomcatt
-        name: main
-      containers:
-      - image: 533267068090.dkr.ecr.ap-northeast-2.amazonaws.com/maintomcat:v1.0
-        name: tomcatt
-        ports:
-        - containerPort: 8080
-        resources:
-          limits:
-            cpu: 250m
-            memory: 250Mi
-          requests:
-            cpu: 250m
-            memory: 250Mi
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 15
-          periodSeconds: 60
-          timeoutSeconds: 60
-          successThreshold: 1
-          failureThreshold: 3
-          
+  containers:
+  - name: tomcat
+    image: 533267068090.dkr.ecr.ap-northeast-2.amazonaws.com/tomcat:v1.0
+    ports:
+    - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -46,7 +18,7 @@ metadata:
 spec:
   clusterIP: 172.20.2.240
   selector:
-    app: tomcatt
+    app: tomcat
   ports:
   - name: http
     port: 8080
