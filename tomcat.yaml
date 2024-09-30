@@ -8,8 +8,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tomcat
-      name: main
+      app: maintom
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -18,8 +17,7 @@ spec:
   template:
     metadata:
       labels:
-        app: tomcat
-        name: main
+        app: maintom
     spec:
       affinity:
         podAntiAffinity:
@@ -73,7 +71,7 @@ metadata:
 spec:
   clusterIP: 172.20.2.240
   selector:
-    app: tomcat
+    app: maintom
   ports:
   - name: http
     port: 8080
