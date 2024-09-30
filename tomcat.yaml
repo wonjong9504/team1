@@ -6,10 +6,6 @@ metadata:
     kubernetes.io/change-cause: first_version
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: tomcatt
-      name: main
   strategy:
     type: RollingUpdate
     rollingUpdate:
