@@ -1,24 +1,15 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: tomcat-index
+  name: tomcat
   labels:
-    app: maintom
+    app: tomcat
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: tomcat
-  template:
-    metadata:
-      labels:
-        app: maintom
-    spec:
-      containers:
-      - name: tomcat-main
-        image: 533267068090.dkr.ecr.ap-northeast-2.amazonaws.com/maintomcat:v1.0
-        ports:
-        - containerPort: 8080
+  containers:
+  - name: tomcat
+    image: 533267068090.dkr.ecr.ap-northeast-2.amazonaws.com/tomcat:v1.0
+    ports:
+    - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -27,7 +18,7 @@ metadata:
 spec:
   clusterIP: 172.20.2.240
   selector:
-    app: maintom
+    app: tomcat
   ports:
   - name: http
     port: 8080
